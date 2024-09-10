@@ -5,7 +5,7 @@ import com.microservice.account.dto.AccountsDto;
 import com.microservice.account.dto.CustomerDto;
 import com.microservice.account.entity.Accounts;
 import com.microservice.account.entity.Customer;
-import com.microservice.account.exception.CustomerAlredyExistentExceptin;
+import com.microservice.account.exception.CustomerAlredyExistentException;
 import com.microservice.account.exception.ResourceNotFoundException;
 import com.microservice.account.mapper.AccountsMapper;
 import com.microservice.account.mapper.CustomerMapper;
@@ -32,7 +32,7 @@ public class AccountsServiceImpl implements IaccountService {
         Optional<Customer> optionalCustomer = customerRepository.findByMobileNumber(customerDto.getMobileNumber());
         if(optionalCustomer.isPresent())
         {
-            throw new CustomerAlredyExistentExceptin("Customer alredy registered with given mobileNumber" +customerDto.getMobileNumber());
+            throw new CustomerAlredyExistentException("Customer alredy registered with given mobileNumber" +customerDto.getMobileNumber());
         }
 
         Customer savedCustomer = customerRepository.save(customer);
