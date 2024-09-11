@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "api", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Tag(
         name = "CRUD REST APIs para contas do EazyBank",
         description = "CRUD REST APIs CREATE, UPDATE, FETCH AND DELETE"
